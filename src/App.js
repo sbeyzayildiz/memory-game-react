@@ -45,41 +45,40 @@ function App() {
   }, [randomizedFrameworks])
 
   useMemo(() => {
-      setTimeout(() => {
-        check()
-      }, 750)
+    setTimeout(() => {
+      check()
+    }, 750)
   }, [openedFrameworks])
 
 
   const handleClick = (frame, name, index) => {
 
-      let framework = {
-        name,
-        index
-      }
+    let framework = {
+      name,
+      index
+    }
 
 
-      let frameworks = [...openedFrameworks]
-      let array = [...finalizedFrameworks]
-      array[index].close = false
+    let frameworks = [...openedFrameworks]
+    let array = [...finalizedFrameworks]
+    array[index].close = false
 
-      frameworks.push(framework)
+    frameworks.push(framework)
 
-      setOpenedFrameworks(frameworks);
+    setOpenedFrameworks(frameworks);
 
-      setFinalizedFrameworks(array)
+    setFinalizedFrameworks(array)
 
   }
 
   const check = () => {
-    if ((openedFrameworks[0].name === openedFrameworks[1].name) && (openedFrameworks[0].index !== openedFrameworks[1].index)) {
-      finalizedFrameworks[openedFrameworks[0].index].complete = true
-      finalizedFrameworks[openedFrameworks[1].index].complete = true
+    if ((openedFrameworks[0]?.name === openedFrameworks[1]?.name) && (openedFrameworks[0]?.index !== openedFrameworks[1]?.index)) {
+      finalizedFrameworks[openedFrameworks[0]?.index].complete = true
+      finalizedFrameworks[openedFrameworks[1]?.index].complete = true
     } else {
-      finalizedFrameworks[openedFrameworks[0].index].close = true
-      finalizedFrameworks[openedFrameworks[1].index].close = true
+      finalizedFrameworks[openedFrameworks[0]?.index].close = true
+      finalizedFrameworks[openedFrameworks[1]?.index].close = true
     }
-
 
     setFinalizedFrameworks(finalizedFrameworks)
     setOpenedFrameworks([]);

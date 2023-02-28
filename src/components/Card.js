@@ -2,8 +2,6 @@ import React from 'react'
 
 function Card({ framework, close, complete, click }) {
 
-    console.log('close', close);
-
     return (
         <div className={"card" + (!close ? ' opened' : '') + (complete ? ' matched' : '')} onClick={() => click(framework)}>
             <div className="front">
